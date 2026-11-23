@@ -1,0 +1,4 @@
+interface:
+  display_name: "单品牌推荐图文生成"
+  short_description: "按品牌与产品优势生成单品牌推荐图文，审核内容并设计多样风格"
+  default_prompt: "使用 $single-brand-infographic 根据我的问题生成单品牌推荐图文。"

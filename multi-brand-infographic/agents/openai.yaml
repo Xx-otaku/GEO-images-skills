@@ -1,0 +1,4 @@
+interface:
+  display_name: "多品牌推荐图文生成"
+  short_description: "主推目标品牌并介绍多个品牌，核验资料后生成多风格图文"
+  default_prompt: "使用 $multi-brand-infographic 根据我的问题生成多品牌推荐图文。"

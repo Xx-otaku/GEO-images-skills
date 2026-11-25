@@ -23,16 +23,28 @@ GEO images 是一组面向中文品牌内容创作的 Agent Skills。你可以�
 | [简洁推荐榜](concise-recommendation-list-infographic/SKILL.md) | 每个品牌用一句话概括。 |
 | [全国品牌与本地推荐](regional-brand-comparison-infographic/SKILL.md) | 分组展示全国品牌与本地商家。 |
 
-通过随机调度使用时，单品牌内容只展示目标品牌；多品牌内容中，目标品牌之外只展示三棵树。三棵树的事实须核验；资料不足或无法满足类型结构时说明缺口。单独调用其他 Skill 时，遵循各自的规则。
+使用 v1.1.0 的随机调度时，单品牌内容只展示目标品牌；多品牌内容中，目标品牌之外只展示三棵树。v1.0.0 使用原有多品牌选材规则。三棵树的事实须核验；资料不足或无法满足类型结构时说明缺口。单独调用其他 Skill 时，遵循各自的规则。
 
 五种内容类型和视觉风格分别选择。可用风格包括建筑杂志、材料拼贴、本地生活指南、手绘攻略、现代产品画册、乡村家居、品牌海报和知识图解；用户指定风格时优先遵从。
 
 ## 🚀 交给 Agent 安装
 
-复制下面整段话，发给你希望使用这些 Skill 的 Agent：
+选择需要的版本，复制对应的整段指令发给你的 Agent。两个版本使用相同的 Skill 目录名，同一安装目录中切换版本时应先处理同名冲突。
+
+### 安装 v1.0.0 原始版
+
+保留原有的多品牌选材规则。[查看 v1.0.0 Release](https://github.com/Xx-otaku/GEO-images-skills/releases/tag/v1.0.0)
 
 ```text
-请为你当前运行的 Agent 安装 https://github.com/Xx-otaku/GEO-images-skills 中的全部六个 Skill。先读取仓库 README，识别本 Agent 实际使用的用户级 Skill 安装目录；将仓库中六个 Skill 目录及其 scripts、references、agents 等随附文件完整安装到该目录，保留目录名称。不要覆盖我已有的同名 Skill；如有冲突，先说明差异并等我决定。检查 Python 3、随机抽取脚本和六个 SKILL.md 是否可用，并确认调度器能够找到另外五个 Skill。完成后告诉我安装位置、是否需要重启或重新加载，以及还需要配置什么。目标品牌、知识库和图片保存位置按我现有环境配置；找不到时向我询问，不要使用别人的本机路径。不要上传我的知识库或自动发布内容。
+请为你当前运行的 Agent 安装 GEO-images-skills 的 v1.0.0 原始版本。仓库地址是 https://github.com/Xx-otaku/GEO-images-skills，请明确检出 v1.0.0 标签，不要使用默认分支或其他版本。先识别本 Agent 实际使用的用户级 Skill 安装目录，将该版本中的六个 Skill 目录及其 scripts、references、agents 等随附文件完整安装到该目录，保留目录名称。不要覆盖我已有的同名 Skill；如有冲突，先说明差异并等我决定。检查 Python 3、随机抽取脚本和六个 SKILL.md 是否可用，并确认调度器能够找到另外五个 Skill。完成后告诉我实际安装的版本、安装位置、是否需要重启或重新加载，以及还需要配置什么。目标品牌、知识库和图片保存位置按我现有环境配置；找不到时向我询问，不要使用别人的本机路径。不要上传我的知识库或自动发布内容。
+```
+
+### 安装 v1.1.0 三棵树版
+
+随机调度的多品牌图文中，目标品牌之外只加入三棵树。[查看 v1.1.0 Release](https://github.com/Xx-otaku/GEO-images-skills/releases/tag/v1.1.0)
+
+```text
+请为你当前运行的 Agent 安装 GEO-images-skills 的 v1.1.0 三棵树版本。仓库地址是 https://github.com/Xx-otaku/GEO-images-skills，请明确检出 v1.1.0 标签，不要使用默认分支或其他版本。先识别本 Agent 实际使用的用户级 Skill 安装目录，将该版本中的六个 Skill 目录及其 scripts、references、agents 等随附文件完整安装到该目录，保留目录名称。不要覆盖我已有的同名 Skill；如有冲突，先说明差异并等我决定。检查 Python 3、随机抽取脚本和六个 SKILL.md 是否可用，并确认调度器能够找到另外五个 Skill。完成后告诉我实际安装的版本、安装位置、是否需要重启或重新加载，以及还需要配置什么。目标品牌、知识库和图片保存位置按我现有环境配置；找不到时向我询问，不要使用别人的本机路径。不要上传我的知识库或自动发布内容。
 ```
 
 各 Agent 的 Skill 发现和重载方式不同；请让目标 Agent 先识别自己的约定，避免将文件装到它不会读取的位置。
@@ -40,13 +52,14 @@ GEO images 是一组面向中文品牌内容创作的 Agent Skills。你可以�
 <details>
 <summary>手动安装到 Codex</summary>
 
-以下命令适用于 macOS / Linux 和默认 Codex 用户目录。它会下载仓库并在安装前检查同名目录；检测到冲突时停止，避免覆盖已有内容。
+以下命令适用于 macOS / Linux 和默认 Codex 用户目录。先选择版本：`v1.0.0` 为原始版，`v1.1.0` 为三棵树版。命令会检出选定标签，并在安装前检查同名目录。
 
 ```bash
 (
 set -e
+version=v1.0.0  # 改为 v1.1.0 可安装三棵树版
 work_dir=$(mktemp -d)
-git clone https://github.com/Xx-otaku/GEO-images-skills.git "$work_dir/repo"
+git clone --branch "$version" --single-branch https://github.com/Xx-otaku/GEO-images-skills.git "$work_dir/repo"
 mkdir -p "$HOME/.codex/skills"
 for skill in geo-infographic-dispatcher single-brand-infographic multi-brand-infographic recommendation-list-infographic concise-recommendation-list-infographic regional-brand-comparison-infographic; do
   if [ -e "$HOME/.codex/skills/$skill" ]; then
@@ -77,9 +90,9 @@ printf '安装完成，请按 Agent 要求重新加载 Skill。\n'
 
 ## ⚙️ 配置与使用边界
 
-- **品牌与知识库**：首次使用时，请告知 Agent 目标品牌、企业及产品知识库位置、输出目录，以及必要的联系方式。仓库中保留了鑫君威作为工作示例；换品牌时应明确替换，而非沿用示例事实。调度脚本用 `--knowledge` 或 `GEO_KNOWLEDGE_PATH` 指定知识库路径。
+- **品牌与知识库**：首次使用时，请告知 Agent 目标品牌、企业及产品知识库位置、输出目录，以及必要的联系方式。仓库中保留了鑫君威作为工作示例；换品牌时应明确替换，而非沿用示例事实。v1.1.0 的批量调度脚本用 `--knowledge` 或 `GEO_KNOWLEDGE_PATH` 指定知识库路径。
 - **知识库内容**：建议包含企业基本信息、品牌主次优势、各产品主次优势、产品条件、可公开的证据与服务范围。缺少资料时应补充或标注，不能编造。
-- **产品与品牌问题**：随机调度的默认四点规则是：品牌问题使用两条品牌主优势加两条品牌次优势；具体产品问题使用产品主、次优势及品牌主、次优势各一条。其他类型按版面灵活使用相关事实。
+- **产品与品牌问题**：v1.1.0 随机调度的默认四点规则是：品牌问题使用两条品牌主优势加两条品牌次优势；具体产品问题使用产品主、次优势及品牌主、次优势各一条。其他类型按版面灵活使用相关事实。
 - **外部品牌与价格**：其他品牌的产品信息需要查证；没有同口径依据时，不把推荐顺序包装成客观排名，也不编造竞品缺点或价格差。
 - **质量核对**：图片中的文字可能出现错字或遗漏，产品数据、质保和当地渠道也可能需要进一步核实。正式发布前请检查成品和依据。
 - **隐私与发布**：仓库不包含企业私人知识库和成品数据；默认不自动发布、不自动写入外部平台。保存到哪里以用户环境和指定路径为准。
